@@ -6,23 +6,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Клонируем репозиторий
       - uses: actions/checkout@v4
 
-      # Устанавливаем Node.js
+      - name: Say hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Устанавливаем зависимости проекта
       - name: Setup
         run: make setup
 
-      # Запускаем тесты
       - name: Run tests
         run: make test
 
-      # Запускаем линтер
       - name: Run linter
         run: make lint
